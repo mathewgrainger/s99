@@ -20,6 +20,10 @@ val p1c = last2(List(1, 1, 2, 3, 5, 8)) == 8
 val p1d = last2(List(7)) == 7
 
 /* Official Answer
+
+Pretty much the same as mine - less verbose match statement
+
+
 object P01 {
   // There are several ways to solve this problem.  If we use builtins, it's very
   // easy.
@@ -34,7 +38,7 @@ object P01 {
   }
 }
 
-Pretty much the same as mine
+
 */
 
 
