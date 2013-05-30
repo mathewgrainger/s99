@@ -9,6 +9,7 @@ res0: List[List[Symbol]] = List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), Li
 
 val data = List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
 
+
 //Attempt 1 - can I use fold?
 
 def checkIfDupAndAppend[T](n: T, ys: List[List[T]]): List[List[T]] =
@@ -31,21 +32,19 @@ def packF[T](xs: List[T])= xs.foldRight(List[List[T]]())(checkIfDupAndAppend)
 
 packF(data)
 
+
 //Attempt 2 - recursion
 
 def packR[T](xs : List[T]) = {
   def acc(ys : List[T], result : List[List[T]]) : List[List[T]] = ys match {
-    case z:: zs => acc(checkIfDupAndAppend(z, result))
+    case z:: zs => acc(zs, checkIfDupAndAppend(z, result))
     case Nil => result
   }
+  acc(xs, List[List[T]]()).reverse
 }
 
-
-
-
-
-
 packR(data)
+
 
 
 
